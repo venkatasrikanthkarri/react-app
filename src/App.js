@@ -10,6 +10,9 @@ const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
+              <Route exact path="/counter-page">
+          <page1/>
+        </Route>
         <Route exact path="/page-1">
           <Page1 />
         </Route>
