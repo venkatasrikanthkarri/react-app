@@ -1,0 +1,22 @@
+.disableState{
+    display:flex;
+    justify-content:center;
+}
+.partTwo{
+    width:150px;
+    margin-left:2%;
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.statusDispaly{
+    margin-top:2%;
+}
+
+
+.clickMeBtn{
+    width:80px;
+    height:30px;
+    border-radius:2px;
+}
