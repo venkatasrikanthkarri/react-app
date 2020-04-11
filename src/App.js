@@ -18,7 +18,7 @@ import CountriesDashboardApp from './components/CountriesList/CountryDashBoardAp
 import CountryDetails from './components/CountriesList/CountryDetails.js';
 import EmojiGame from './components/EmojiGame/EmojiGameComponent/EmojiGame.js';
 import GoBack from './GoBack.js';
-import CounterPage from './components/CounterPage/index.js';
+// import CounterPage from './components/CounterPage/index.js';
 import Page1 from './components/Page1/index.js';
 import HomePage from './components/HomePage/index.js';
 import CounterApp from './components/Tryouts/Counter.js';
@@ -108,10 +108,10 @@ export default class App extends React.Component {
                             <li>
                               <Link to="/emoji-game">Emojis Game</Link>
                             </li>
-                            
+{/*                             
                             <li>
                               <Link to="/counter-page">counter-page</Link>
-                            </li>
+                            </li> */}
                             
                             <li>
                               <Link to="/page-1">page-1</Link>
@@ -146,9 +146,9 @@ export default class App extends React.Component {
                     </nav>
                 </div>
             </Route>
-            <Route exact path="/counter-page">
+            {/* <Route exact path="/counter-page">
               <CounterPage/>
-            </Route>
+            </Route> */}
             <Route exact path="/page-1">
               <Page1 />
             </Route>
