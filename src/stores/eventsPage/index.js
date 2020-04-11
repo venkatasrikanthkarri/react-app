@@ -1,6 +1,6 @@
 // EVENT STORE
 
-import {observable,toJS} from 'mobx';
+import {observable,toJS,action} from 'mobx';
 import Event from '../models/eventsPage/index.js';
 
 class EventStore{
@@ -8,7 +8,7 @@ class EventStore{
     constructor(){
         this.eventsArray=[];
     }
-    onAddEvent=(eventDetails)=>{
+    @action.bound onAddEvent(eventDetails){
         const eventModel=new Event();
         // console.log('store',eventDetails);
         eventModel.onUpdateEventDetails(eventDetails);
@@ -20,5 +20,5 @@ class EventStore{
 
     }
 }
-const EventStoreInstance=new EventStore();
-export default(EventStoreInstance);
+const eventStoreInstance=new EventStore();
+export default(eventStoreInstance);

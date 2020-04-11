@@ -1,26 +1,20 @@
 // INDIVIDUAL EVENT
 
 import React from 'react';
-class Event extends React.Component{
+import {observer} from 'mobx-react';
+@observer class Event extends React.Component{
     render(){
         const {eventObject}=this.props;
-        if(eventObject.length!==0){
+        const key=Math.random();
             return(
-                <div>{eventObject.map(each=> <div key={Math.random()}>
-                         <input type='text' value={each.name}/>
-                         <input type='text' value={each.location}/>
-                         <button>EDIT</button>
-                         <button>DELETE</button>
-                     </div>
-                     )}
+                <div key={Math.random()}>
+                         <input key={Math.random()} type='text' defaultValue={eventObject.name}/>
+                         <input key={Math.random()} type='text' defaultValue={eventObject.location}/>
+                         <button key={Math.random()} >EDIT</button>
+                         <button key={Math.random()}>DELETE</button>   
                  </div>
                      
              )
         }
-        else{
-            return null;
-        }
-        
-    }
 }
 export default(Event);

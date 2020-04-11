@@ -1,10 +1,8 @@
 // EVENT MODEL
-// import {observable} from 'mobx';
+import {observable} from 'mobx';
 class Event{
-    // @observable id;
-    // @observable name;
-    // @observable location;
-
+    @observable name;
+    @observable location;
     consructor(){
         this.id=null;
         this.name=null;

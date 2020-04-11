@@ -1,16 +1,17 @@
 // EVENT LISTS
 
 import React from 'react';
-import EventStoreInstance from '../../stores/eventsPage/index.js';
+import eventStoreInstance from '../../stores/eventsPage/index.js';
 import {observer} from 'mobx-react';
 import Event from './Event.js';
-@observer class EventList extends React.Component{
+@observer 
+class EventList extends React.Component{
     render(){
-    console.log('EventList from Stores',EventStoreInstance.EventArray);
-        if(EventStoreInstance.EventArray!==undefined){
+    console.log('EventList from Stores',eventStoreInstance.eventsArray);
+        if(eventStoreInstance.eventsArray!==undefined){
         return(
-            <div>nothing
-                {EventStoreInstance.map(each=><Event EventObject={each} />)}
+            <div key={Math.random()}>
+                {eventStoreInstance.eventsArray.map(each=><Event eventObject={each} />)}
             </div>
             );
         }

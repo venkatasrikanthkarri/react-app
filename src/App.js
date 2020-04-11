@@ -25,6 +25,7 @@ import CounterApp from './components/Tryouts/Counter.js';
 import TodoApp from './components/MobxTodo/Todo/index.js';
 import TodoAPPMobx from './components/stores/TodoApp.js';
 import EventsApp from './components/EventsPage/index.js';
+import ProviderExample from './components/hands-on/index.js';
 
 import './App.css';
 import './custom.css';
@@ -135,6 +136,10 @@ export default class App extends React.Component {
                             <li>
                               <Link to="/events-app">Events Page</Link>
                             </li>
+
+                            <li>
+                              <Link to="/provider-example">provider-example</Link>
+                            </li>
                             
                             
                           </ul>
@@ -232,6 +237,10 @@ export default class App extends React.Component {
 
           <Route exact path="/events-app">
               <EventsApp />
+          </Route>
+
+          <Route exact path="/provider-example">
+              <ProviderExample />
           </Route>
 
         </Switch>
