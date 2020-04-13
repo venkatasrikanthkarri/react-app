@@ -26,11 +26,11 @@ import TodoApp from './components/MobxTodo/Todo/index.js';
 import TodoAPPMobx from './components/stores/TodoApp.js';
 import EventsApp from './components/EventsPage/index.js';
 import ProviderExample from './components/hands-on/index.js';
+import Rough from './components/hands-on/rough.js';
 
 import './App.css';
 import './custom.css';
 
-// configure ({enforceActions:true});
 export default class App extends React.Component {
     constructor(props) {
         super(props);
@@ -140,6 +140,10 @@ export default class App extends React.Component {
                             <li>
                               <Link to="/provider-example">provider-example</Link>
                             </li>
+
+                            <li>
+                              <Link to="/rough">Rough</Link>
+                            </li>
                             
                             
                           </ul>
@@ -241,6 +245,10 @@ export default class App extends React.Component {
 
           <Route exact path="/provider-example">
               <ProviderExample />
+          </Route>
+
+          <Route exact path="/rough">
+              <Rough />
           </Route>
 
         </Switch>
