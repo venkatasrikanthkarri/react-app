@@ -1,3 +1,5 @@
+import React from 'react';
+
 let data=[];
 let keys=0;
 
@@ -40,7 +42,7 @@ class CountriesDashboardApp extends React.Component{
     filterCountriesBySearchText=(searchedText)=>{
         console.log(searchedText);
         let filteredCountries=this.state.filteredCountriesList.filter((each)=>{
-          return (each.name.toLowerCase().search(searchedText)!=-1);
+          return (each.name.toLowerCase().search(searchedText)!==-1);
 
         });
         this.setState({filteredCountriesList:filteredCountries});
@@ -51,7 +53,7 @@ class CountriesDashboardApp extends React.Component{
     filterCountriesBySelectedRegion=(searchedRegion)=>{
         
         let filteredCountries=this.state.countriesList.filter((each)=>{
-          return (each.region.search(searchedRegion)!=-1);
+          return (each.region.search(searchedRegion)!==-1);
 
         });
         if(searchedRegion!=="All"){
@@ -168,7 +170,7 @@ class CountryCard extends React.Component{
 
             <div className="countryCards">
                 <div className="flag">
-                <img className="imgTag" src={this.props.flags} />
+                <img className="imgTag" src={this.props.flags} alt=''/>
                 </div>
                 <div className="details">
                 <h4 className="headings">{this.props.name}</h4>
@@ -188,72 +190,6 @@ class CountryCard extends React.Component{
     }
 
 }
-
-
-
-
-
-{/*
-
-
-class Countries extends React.Component{
-    rendercountries=()=>{
-        let nationCards='';
-        keys=0;
-        nationCards=this.props.CountriesList.map(each=>{
-
-            return <CountryCard key={keys++}
-            flags={each.flag}
-            name={each.name}
-            population={each.population}
-            region={each.region}
-            capital={each.capital}/>;
-
-
-        });
-        return nationCards;
-    }
-    render(){
-        return(
-            <div className="countriesList">
-            {this.rendercountries()}
-            </div>
-            );
-    }
-
-}
-
-
-class CountryCard extends React.Component{
-
-    render(){
-        return(
-            <div className="countryCards">
-                <div className="flag">
-                <img className="imgTag" src={this.props.flags} />
-                </div>
-                <div className="details">
-                <h4 className="headings">{this.props.name}</h4>
-                <h5 className="headings">Population:</h5>
-                <span>{this.props.population}</span>
-                <div>
-                <h5 className="headings">Region:</h5>
-                <span>{this.props.region}</span>
-                </div>
-                <div>
-                <h5 className="headings">Capital: </h5>
-                <span>{this.props.capital}</span>
-                </div>
-                </div>
-            </div>
-            );
-    }
-
-}
-
-
-
-*/}
 
 
 ReactDOM.render(<CountriesDashboardApp/>,document.getElementById('root'));

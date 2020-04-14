@@ -1,12 +1,17 @@
 // EVENT MODEL
 import {observable} from 'mobx';
-class Event{
+type StateValues={
+    name:string
+    location:string
+}
+class Event<StateVariable>{
     @observable name;
     @observable location;
+    id:any
     consructor(){
-        this.id=null;
-        this.name=null;
-        this.location=null;
+        this.id='';
+        this.name='';
+        this.location='';
     }
     onUpdateEventDetails=(eventDetails)=>{
         console.log('model',eventDetails);

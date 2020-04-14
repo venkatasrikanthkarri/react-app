@@ -1,7 +1,7 @@
 // EVENT STORE
 
 import {observable,toJS,action} from 'mobx';
-import Event from '../models/eventsPage/index.js';
+import Event from '../models/eventsPage/index';
 
 class EventStore{
     @observable eventsArray;

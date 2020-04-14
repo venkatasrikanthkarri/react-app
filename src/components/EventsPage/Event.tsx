@@ -1,11 +1,17 @@
 // INDIVIDUAL EVENT
+import {observer} from 'mobx-react';
 
 import React from 'react';
-import {observer} from 'mobx-react';
-@observer class Event extends React.Component{
+type Props ={
+    eventObject:{
+        'name':string;
+        'location':string;
+    }
+}
+@observer
+class Event extends React.Component<Props>{
     render(){
-        const {eventObject}=this.props;
-        const key=Math.random();
+        const{eventObject}=this.props;
             return(
                 <div key={Math.random()}>
                          <input key={Math.random()} type='text' defaultValue={eventObject.name}/>

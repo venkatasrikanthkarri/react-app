@@ -1,14 +1,26 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import {observable,action} from 'mobx';
+
+import TodoList from '../TodoList/TodoList.js';
+
 import {Heading,Container,UserInput} from './style.js'
 // import {toJS} from 'mobx';
 
-import TodoList from '../TodoList/TodoList.js';
-@observer class TodoApp extends React.Component {
-    @observable todos=[];
+
+
+type Props={
+    todos:{
+        id:number;
+        title:string;
+        isCompleted:boolean;
+    }[],
+    selectedFilter:string
+}
+
+@observer class TodoApp extends React.Component<Props> {
+    @observable todos;
     @observable selectedFilter ='ALL';
- 
     @action onAddTodo = (event) =>{
         if(event.keyCode===13){
             if(event.target.value.match(/^(?!\s*$)./)){
@@ -22,7 +34,7 @@ import TodoList from '../TodoList/TodoList.js';
         }  
     }
     
-    @action onCompleteTodo=(event)=>{
+    @action onCompleteTodo=(event):void=>{
     this.todos=this.todos.map(each=>{
     if(parseFloat(each.id)===parseFloat(event.target.id)){
         each.isCompleted=event.target.checked;
@@ -36,7 +48,7 @@ import TodoList from '../TodoList/TodoList.js';
         this.todos=this.todos.filter(each=>each.id!==parseFloat(event.target.id));
     }
 
-    @action onUpdateTodoTitle=(event)=>{
+    @action onUpdateTodoTitle=(event):void=>{
         this.todos=this.todos.map(each=>{
             if(parseFloat(each.id)===parseFloat(event.target.id)){
                 each.title=event.target.value;

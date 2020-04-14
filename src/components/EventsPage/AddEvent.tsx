@@ -3,7 +3,7 @@
 import React from 'react';
 import {observable,action} from 'mobx';
 import {observer} from 'mobx-react';
-import EventStoreInstance from '../../stores/eventsPage/index.js';
+import EventStoreInstance from '../../stores/eventsPage/index';
 @observer class AddEvent extends React.Component{
     @observable eventName;
     @observable eventLocation;

@@ -3,11 +3,12 @@ import {observer} from 'mobx-react';
 import{reaction} from 'mobx';
 import{Button,Div,Container,Input,H1} from './style.js';
 
-import CounterState from './state.js';
+import CounterState from './state';
 
 @observer class CounterApp extends React.Component {
-    constructor(){
-        super();
+    counterReaction: any;
+    constructor(props){
+        super(props);
         this.counterReaction=reaction(()=>{return CounterState.count>5},(value)=>{console.log('reaction',value)});
     }
     render(){

@@ -1,9 +1,9 @@
 // EVENT LISTS
 
 import React from 'react';
-import eventStoreInstance from '../../stores/eventsPage/index.js';
+import eventStoreInstance from '../../stores/eventsPage/index';
 import {observer} from 'mobx-react';
-import Event from './Event.js';
+import Event from './Event';
 @observer 
 class EventList extends React.Component{
     render(){
