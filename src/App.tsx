@@ -22,6 +22,7 @@ import Page1 from './components/Page1/index';
 import HomePage from './components/HomePage/index';
 import CounterApp from './components/Tryouts/Counter';
 import EventsApp from './components/EventsPage/index';
+import StudentsPage from './components/studentList';
 
 import './App.css';
 import './custom.css';
@@ -130,6 +131,10 @@ export default class App extends React.Component{
                               <Link to="/events-app">Events Page</Link>
                             </li>
 
+                            <li>
+                              <Link to="/students-List">Students List</Link>
+                            </li>
+
                             
                             
                           </ul>
@@ -207,16 +212,24 @@ export default class App extends React.Component{
 
           <Route exact path="/emoji-game">
             <div>
+            <GoBack />
               <EmojiGame/>
             </div>
           </Route>
           <Route exact path="/counter">
+          <GoBack />
               <CounterApp />
           </Route>
 
           <Route exact path="/events-app">
+          <GoBack />
               <EventsApp />
           </Route>
+
+          <Route exact path="/students-list">
+          <GoBack />
+          <StudentsPage />
+        </Route>
 
          
 
