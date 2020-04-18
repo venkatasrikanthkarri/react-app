@@ -7,6 +7,7 @@ import {
     Link
 } from "react-router-dom";
 
+import {observer} from 'mobx-react'
 
 import { CarGarage } from './components/CarsList/carList.js';
 import { UserMainComponent } from './components/TodoList/index.js';
@@ -22,11 +23,16 @@ import GoBack from './GoBack.js';
 import CounterPage from './components/CounterPage/index.js';
 import Page1 from './components/Page1/index.js';
 import HomePage from './components/HomePage/index.js';
-
+import GridMemoryGame from './components/GridGame/GridMemoryGame'
+import selectTheme from './stores/selectTheme'
 import './App.css';
 import './custom.css';
+import StyledTheme from './appStyle'
+import GameResult from './components/GridGame/GameResult'
 
-export default class App extends React.Component {
+
+@observer
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -61,7 +67,6 @@ export default class App extends React.Component {
     }
 
     render() {
-
         return (
             <Router basename={process.env.PUBLIC_URL}>
         <Switch>
@@ -114,6 +119,10 @@ export default class App extends React.Component {
                             
                             <li>
                               <Link to="/home">React home</Link>
+                            </li>
+
+                            <li>
+                              <Link to="/grid-game">gridGame</Link>
                             </li>
                             
                             
@@ -200,6 +209,18 @@ export default class App extends React.Component {
           </div>
           </Route>
 
+          {/* <Route exact path="/grid-game/win">
+            <GameResult />
+          </Route> */}
+
+          <Route exact path="/grid-game">
+          <StyledTheme bg={selectTheme.themeStyle.background} color={selectTheme.themeStyle.color}>
+          <GridMemoryGame/>          
+          </StyledTheme>
+          </Route>
+
+          
+
         </Switch>
     </Router>
         );
@@ -207,3 +228,5 @@ export default class App extends React.Component {
     }
 
 }
+
+export default App
