@@ -7,8 +7,11 @@ import {
     Link
 } from "react-router-dom";
 
+<<<<<<< HEAD:src/App.js
 import {observer} from 'mobx-react'
 
+=======
+>>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667:src/App.tsx
 import { CarGarage } from './components/CarsList/carList.js';
 import { UserMainComponent } from './components/TodoList/index.js';
 import { GreetingComponent } from './components/assignment_3/greetingComponent.js';
@@ -20,19 +23,38 @@ import CountriesDashboardApp from './components/CountriesList/CountryDashBoardAp
 import CountryDetails from './components/CountriesList/CountryDetails.js';
 import EmojiGame from './components/EmojiGame/EmojiGameComponent/EmojiGame.js';
 import GoBack from './GoBack.js';
+<<<<<<< HEAD:src/App.js
 import CounterPage from './components/CounterPage/index.js';
 import Page1 from './components/Page1/index.js';
 import HomePage from './components/HomePage/index.js';
 import GridMemoryGame from './components/GridGame/GridMemoryGame'
 import selectTheme from './stores/selectTheme'
+=======
+import Page1 from './components/Page1/index';
+import HomePage from './components/HomePage/index';
+import CounterApp from './components/Tryouts/Counter';
+import EventsApp from './components/EventsPage/index';
+import StudentsPage from './components/studentList';
+
+>>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667:src/App.tsx
 import './App.css';
 import './custom.css';
 import StyledTheme from './appStyle'
 import GameResult from './components/GridGame/GameResult'
 
 
+<<<<<<< HEAD:src/App.js
 @observer
 class App extends React.Component {
+=======
+
+
+export default class App extends React.Component{
+    goToPrevious: (() => void) | undefined;
+    
+
+
+>>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667:src/App.tsx
     constructor(props) {
         super(props);
         this.state = {
@@ -122,42 +144,53 @@ class App extends React.Component {
                             </li>
 
                             <li>
+<<<<<<< HEAD:src/App.js
                               <Link to="/grid-game">gridGame</Link>
                             </li>
+=======
+                              <Link to="/counter">Counter</Link>
+                            </li>
+
+                            <li>
+                              <Link to="/events-app">Events Page</Link>
+                            </li>
+
+                            <li>
+                              <Link to="/students-List">Students List</Link>
+                            </li>
+
+>>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667:src/App.tsx
                             
                             
                           </ul>
                     </nav>
                 </div>
             </Route>
-              <Route exact path="/counter-page">
-          <CounterPage/>
-        </Route>
-        <Route exact path="/page-1">
-          <Page1 />
-        </Route>
-        <Route exact path="/home">
-          <HomePage />
-        </Route>
-          <Route exact path="/carlist">
-             <div>
-                <GoBack/>
-                <CarGarage/>
-            </div>
-          </Route>
+            <Route exact path="/page-1">
+              <Page1 />
+            </Route>
+            <Route exact path="/home">
+              <HomePage />
+            </Route>
+            <Route exact path="/carlist">
+              <div>
+                  <GoBack/>
+                  <CarGarage/>
+              </div>
+            </Route>
 
-          <Route exact path="/todoList">
-            <div>
-                <GoBack/>
-                <UserMainComponent/>
-            </div>
-          </Route>
+            <Route exact path="/todoList">
+              <div>
+                  <GoBack/>
+                  <UserMainComponent/>
+              </div>
+            </Route>
 
           <Route exact path="/greeting">
-          <div>
-          <button className="backBtn" type="button" onClick={this.goToPrevious}></button>
-          <GreetingComponent/>
-          </div>
+            <div>
+              <button className="backBtn" type="button" onClick={this.goToPrevious}></button>
+              <GreetingComponent/>
+            </div>
           </Route>
 
 
@@ -190,25 +223,30 @@ class App extends React.Component {
           </Route>
 
           <Route exact path="/Countries-Dashboard-App">
-                <div style={this.state.themeOptions}>
-                    <GoBack />
-                    <CountriesDashboardApp styles={this.state.themeOptions} onChangeTheme={this.onChangeTheme}  />
-                </div>
-
+            <div >
+                <GoBack />
+                <CountriesDashboardApp  onChangeTheme={this.onChangeTheme}  />
+            </div>
           </Route>
 
           <Route exact path="/Countries-Dashboard-App/:countrydetails">
-          <div style={this.state.themeOptions}>
-            <CountryDetails styles={this.state.themeOptions} onChangeTheme={this.onChangeTheme}  />
-          </div>
+            <div >
+              <CountryDetails  onChangeTheme={this.onChangeTheme}  />
+            </div>
           </Route>
 
           <Route exact path="/emoji-game">
-          <div>
-            <EmojiGame/>
-          </div>
+            <div>
+            <GoBack />
+              <EmojiGame/>
+            </div>
+          </Route>
+          <Route exact path="/counter">
+          <GoBack />
+              <CounterApp />
           </Route>
 
+<<<<<<< HEAD:src/App.js
           {/* <Route exact path="/grid-game/win">
             <GameResult />
           </Route> */}
@@ -220,6 +258,19 @@ class App extends React.Component {
           </Route>
 
           
+=======
+          <Route exact path="/events-app">
+          <GoBack />
+              <EventsApp />
+          </Route>
+
+          <Route exact path="/students-list">
+          <GoBack />
+          <StudentsPage />
+        </Route>
+
+         
+>>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667:src/App.tsx
 
         </Switch>
     </Router>
