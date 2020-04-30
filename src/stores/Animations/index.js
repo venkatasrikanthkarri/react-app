@@ -1,6 +1,5 @@
 import {keyframes} from '@emotion/core'
 
-
 const FadeIn=keyframes`
 0% {
     opacity:0
@@ -39,4 +38,16 @@ const BoxStetchHorizontally=keyframes`
     transform:scaleX(1)
 }
 `
-export {FadeIn,BoxStretch,BoxShrink,BoxStetchHorizontally}
+
+const Loading=
+keyframes `
+    0% {
+      height: 64px;
+      width:64px;
+    }
+    50%, 100% {
+      height: 32px;
+      width:32px;
+    }
+  `
+export {FadeIn,BoxStretch,BoxShrink,BoxStetchHorizontally,Loading}

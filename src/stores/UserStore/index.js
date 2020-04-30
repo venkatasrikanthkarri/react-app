@@ -1,19 +1,19 @@
 import {observable,action} from 'mobx'
-import {API_INITIAL} from '@ib/api-constants'
 
+import {bindPromiseWithOnSuccess} from '@ib/mobx-promise'
 
 class UserStore{
-    @observable getUsersApiSatus
+    @observable getUsersApiStatus
     @observable getUsersApiError
     @observable users
-
-    constructor(){
+    userService
+    constructor(userService){
+        this.userService=userService
         this.init()
     }
 
     @action
     init(){
-        this.getUsersApiSatus=API_INITIAL
         this.getUsersApiError=null
         this.users=[]
     }
@@ -25,32 +25,37 @@ class UserStore{
 
     @action.bound
     getUsersAPI(){
-        this.getUsersApiSatus=API_FETCHING
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((users)=>users.json())
-        .then(this.setUsersResponse)
-        .catch(this.setUsersAPIError)
+
+        const usersPromise=this.userService.getUsersAPI()
+            return bindPromiseWithOnSuccess(usersPromise).to(this.setUsersAPIStatus,this.setUsersAPIResponse)
+            .catch(this.setUsersAPIError)
+
     }
 
-    setUsersResponse(users){
+    @action.bound
+    setUsersAPIResponse(users){
         this.users=users.map((user)=>user.name)
-                this.getUsersApiSatus=API_SUCCESS
-    }
-
-    setUsersAPIResponse(){
-
 
     }
 
-    setUsersAPIError(){
-                this.getUsersApiSatus=API_FAILED
+    @action.bound
+    setUsersAPIError(error){
+        console.log('error',error)
+        // this.getUsersApiSatus=API_FAILED
         this.getUsersApiError=error
     }
 
+    @action.bound
+    setUsersAPIStatus(apiStatus){
+        this.getUsersApiStatus=apiStatus
+    }
 
 
 }
 
-const userStore=new UserStore()
-userStore.getUsers()
-export default userStore
+// const userService= new UserService()
+// const userStore=new UserStore(userService)
+// // userStore.getUsers()
+// export default userStore
+
+export default UserStore

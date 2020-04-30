@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 import {observable,action} from 'mobx'
 import Cell from '../models/cell'
 import gameLevels from './GridDetails.json'
 
-=======
-import {observable} from 'mobx'
-import Cell from '../models/cell'
->>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667
 
 class GameStore{
     @observable level
@@ -15,7 +10,6 @@ class GameStore{
     @observable selectedCellsCount
     @observable isGameCompleted
 
-<<<<<<< HEAD
     constructor(){
         this.level=0
         this.topLevel=0
@@ -39,6 +33,7 @@ class GameStore{
         }
 
         if(this.selectedCellsCount===this.level+3){
+          this.level++
           (this.selectedCellsCount===gameLevels.length+2)?
           this.isGameCompleted=true:
           setTimeout(()=>this.goToNextLevelAndUpdateCells(),200);
@@ -121,96 +116,3 @@ class GameStore{
 
 const gridGameStore=new GameStore()
 export default gridGameStore
-=======
-
-    constructor(){
-        this.level=0
-        this.topLevel=0
-        this.currentLevelGridCells=0
-        this.selectedCellsCount=0
-        this.isGameCompleted=false
-        this.gameLevels=[
-            {
-              "gridSize": 3, 
-              "hiddenCellCount": 3, 
-              "gridWidth": 300 
-            },
-
-            {
-                "gridSize": 4, 
-                "hiddenCellCount": 4, 
-                "gridWidth": 280 
-              },
-
-              {
-                "gridSize": 5, 
-                "hiddenCellCount": 5, 
-                "gridWidth": 260 
-              },
-
-              {
-                "gridSize": 6, 
-                "hiddenCellCount": 6, 
-                "gridWidth": 240 
-              },
-
-              {
-                "gridSize": 7, 
-                "hiddenCellCount": 7, 
-                "gridWidth": 220 
-              }              
-          ]
-    }
-
-    onCellClick=(isHidden)={
-        if(isHidden){
-            this.incrementSelectedCellsCount()
-        }
-        else{
-            this.resetSelectedCellsCount()
-            this.goToInitialLevelAndUpdateCells()
-        }
-
-        if(this.selectedCellsCount===this.level){
-            
-        }
-
-    }
-
-    setGridCells=()=>{
-        for(const i=0;i<(this.level+3)**2;i++)
-        {
-            this.currentLevelGridCells.push(this.gameLevels[this.level])
-        }
-
-    }
-
-    goToNextLevelAndUpdateCells=()=>{
-
-    }
-
-    goToInitialLevelAndUpdateCells=()=>{
-
-    }
-
-    resetSelectedCellsCount=()=>{
-
-    }
-
-    incrementSelectedCellsCount=()=>{
-
-    }
-
-    onPlayAgainClick=()=>{
-
-    }
-
-    resetGame=()=>{
-
-    }
-
-    setTopLevel=()=>{
-
-    }
-}
->>>>>>> 92fc89316f3d62ad7b74c295fa9d52deef1b6667

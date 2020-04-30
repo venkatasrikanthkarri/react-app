@@ -20,9 +20,10 @@ class Cell extends React.Component{
         this.resetHiddenCellTimer=0
         this.resetGridTimer=0
         this.bg=''
-        this.commonBg='2d3748'
+        this.commonBg='#2d3748'
         this.wrongcellBg='#2d3748'
         this.animation=FadeIn
+        this.a=0
 
     }
 
@@ -37,6 +38,7 @@ class Cell extends React.Component{
     componentWillUnmount(){
         clearTimeout(this.resetHiddenCellTimer)
         clearTimeout(this.resetGridTimer)
+        clearTimeout(this.a)
     }
 
     onCellClick=(event)=>{
@@ -46,6 +48,7 @@ class Cell extends React.Component{
             gridGameStore.onCellClick(this.object)
             
         }
+        
         else if(!this.shouldShowHiddenCells&&!this.object.isHidden){
             this.wrongcellBg='#f56565'
             this.animation=BoxStetchHorizontally
@@ -63,8 +66,10 @@ class Cell extends React.Component{
         if((object.isHidden && this.shouldShowHiddenCells) || (object.isHidden&&this.isClickedOnCell)){
             this.bg=SelectTheme.themeStyle.activeCellBg        
         }
-        else if(!this.shouldShowHiddenCells&&object.isHidden){
+        else if(!this.shouldShowHiddenCells&&this.object.isHidden){
+            // this.bg='#2d3748'
             this.animation=BoxShrink
+            
         }
         else{
             this.bg=this.wrongcellBg

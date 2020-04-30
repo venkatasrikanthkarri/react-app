@@ -26,7 +26,6 @@ class GridMemoryGame extends React.Component{
             )
         }
         return(
-
                 <GameResult/>
         )
     }

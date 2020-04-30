@@ -6,7 +6,6 @@ let userGivenData={
     id:''
 };
 let listOfTodos=[];
-
 class TodoComponent extends React.Component{
     constructor(props){
         super(props);
@@ -32,6 +31,8 @@ class TodoComponent extends React.Component{
             );
     }
 }
+
+
 
 class FooterComponent extends React.Component{
     constructor(props){

@@ -1,8 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import logo from "../../logo.svg";
 
 function App() {
+
+  // gotoGridScreenIfLoggedIn=()=>{
+  //   return (
+  //     <Redirect
+  //     to={{pathname:'/grid-game'}}/>
+  //   )
+  // }
+  // render(){
+  //   if(true){
+  //     return this.gotoGridScreenIfLoggedIn()
+  //   }
+  // }
+
   return (
     <div className="App">
       <header className="App-header">
