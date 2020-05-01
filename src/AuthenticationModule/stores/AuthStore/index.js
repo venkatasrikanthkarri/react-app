@@ -34,7 +34,6 @@ class AuthStore{
     @action.bound
     userSignIn(username,password){
         if(username!=='' && password!==''){
-            alert(123123123)
         const authPromise=this.authAPIService.signInAPI()
         return bindPromiseWithOnSuccess(authPromise)
         .to(this.setGetUserSignInAPIStatus,this.setUserSignInAPIResponse)
@@ -44,10 +43,9 @@ class AuthStore{
 
     @action.bound
     setUserSignInAPIResponse(accessToken){
-        alert('response')
         setAccessToken(accessToken)
         this.accessToken=getAccessToken()
-        alert(this.accessToken)
+        
     }
 
     @action.bound
@@ -57,7 +55,6 @@ class AuthStore{
 
     @action.bound
     setGetUserSignInAPIStatus(status){
-        alert('status')
         this.getUserSignInAPIStatus=status
     }
 

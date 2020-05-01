@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {observer} from 'mobx-react'
-import {ItemContainer,ItemWrapper,Image,Details,Title,Description,Quantitiy,CloseAndPrice,Price,Close} from './style.js'
+import {ItemContainer,Line,ItemWrapper,Image,Details,Title,Description,Quantitiy,CloseAndPrice,Price,Close} from './style.js'
 import { action } from 'mobx'
 
 @observer
@@ -16,8 +16,8 @@ class Cart extends Component{
         const {image,title,style,price}=cartItem.details
         const {quantity}=cartItem.cartModel
         return(
-                <ItemContainer>
-                    {/* <hr></hr> */}
+                <ItemContainer type='cartItem'>
+                    <Line></Line>
                     <ItemWrapper>
                         <Image src={image} alt='image'/>
                         <Details>
@@ -32,6 +32,7 @@ class Cart extends Component{
                     </ItemWrapper>
 
                 </ItemContainer>
+               
         )
     }
 }

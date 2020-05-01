@@ -18,7 +18,7 @@ class CartItem extends Component{
     this.width=0;
   }
   openNavBar=()=>{
-    this.width=400    
+    this.width=380    
   }
 
   closeNavBar=()=>{
@@ -51,6 +51,7 @@ class CartItem extends Component{
 <CartContainer>
 <FiShoppingCart color={'white'} size={50} onClick={this.openNavBar} cursor={'pointer'}/>
 <CartCount onClick={this.openNavBar}>{noOfProductsInCart}</CartCount>
+
 <Cart width={this.width}>
 <Close onClick={this.closeNavBar}>&#10006;</Close>
 
@@ -58,7 +59,7 @@ class CartItem extends Component{
   <CartTopBar><FiShoppingCart color={'white'} size={30}/><CartTitle>Cart</CartTitle></CartTopBar>
   {this.renderCartList()}
   <CheckOutWrapper>
-  <AmountScreen><Subtotal>SUBTOTAL</Subtotal><Amount>&#8377; {totalCartAmount}</Amount></AmountScreen>
+  <AmountScreen><Subtotal>SUBTOTAL</Subtotal><Amount>&#8377; {totalCartAmount.toFixed(2)}</Amount></AmountScreen>
   <CheckOut onClick={clearCart}>CheckOut</CheckOut>    
   </CheckOutWrapper>
 </CartWrapper>

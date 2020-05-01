@@ -41,8 +41,23 @@ class Product extends Component{
         else{
             return null
         }
+    }
+
+    calculatedPrice=()=>{
+        const{
+            price,
+            installments
+        }=this.props.productDetails
+
+        if(installments===0){
+            return null
+        }
+        else{
+            return (price/installments).toFixed(2)
+        }
 
     }
+
     
     render(){
         const{
@@ -65,7 +80,7 @@ class Product extends Component{
                 <Rupees>&#8377;</Rupees>
                 <Digits>{notes}.</Digits>
                 <Decimals>{coins}</Decimals>
-                <Installments>or {installments} &#10005; &#8377; {(price/installments).toFixed(2)}</Installments>
+                <Installments>or {installments} &#10005; &#8377; {this.calculatedPrice()}</Installments>
             </ProductPrice>
             <AddToCart onClick={this.onClickAddToCart}>Add to cart</AddToCart>
             <ToastContainer/>

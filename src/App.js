@@ -1,7 +1,6 @@
 import React from 'react';
-// import { withRouter } from "react-router-dom";
 import {
-    BrowserRouter as Router,
+  HashRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
@@ -31,7 +30,6 @@ import TodoAppWithServicesandAPISause from './components/TodoListWithNetworkCall
 import LogInPage from './components/LogInPage'
 import authRoutes from './AuthenticationModule/routes'
 import produtsPageRoutes from './E_CommerceAppModule/routes'
-// import Stores from './AuthenticationModule/stores'
 
 
 import selectTheme from './stores/selectTheme'
@@ -188,7 +186,6 @@ class App extends React.Component {
         <Route exact path="/login" >
         <LogInPage/>
         </Route>
-
 
         {authRoutes}
         {produtsPageRoutes}

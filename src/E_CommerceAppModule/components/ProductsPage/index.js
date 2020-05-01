@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-// import {withRouter} from 'react-router-dom'
 import {observer, inject} from 'mobx-react'
 
 import LoadingWrapperWithFailure from '../../../components/common/LoadingWrapperWithFailure'
@@ -14,7 +13,8 @@ import {SignOut,ProductPageContainer,HeaderProducts,ProductsPageWrapper} from '.
 
 @inject('productStore','authStore')
 @observer
-class ProductsPageRoute extends Component{
+class ProductsPage extends Component{
+    
     
     componentDidMount(){
         this.props.productStore.getProductList()
@@ -32,11 +32,10 @@ class ProductsPageRoute extends Component{
     }
 
     render(){
-
         const {getProductListAPIError,getProductListAPIStatus,onChangeSortBy,onSelectSize,totalNoOfProductsDisplayed}=this.props.productStore
         return(
         <ProductsPageWrapper>
-            <SignOut>Sign Out</SignOut>
+            <SignOut onClick={this.onClickSignOut}>Sign Out</SignOut>
             <CartItem/>
             
             <ProductPageContainer>
@@ -56,4 +55,4 @@ class ProductsPageRoute extends Component{
     }
 }
 
-export default ProductsPageRoute
+export default ProductsPage

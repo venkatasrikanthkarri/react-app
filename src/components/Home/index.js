@@ -3,7 +3,8 @@ import { Link, Redirect } from "react-router-dom"
 import logInStore from '../../stores/LogInStore'
 import {observer} from 'mobx-react'
 import {observable} from 'mobx'
-
+import {getAccessToken} from '../../utils/StorageUtils'
+import SIGN_IN_PATH from '../../AuthenticationModule/constants'
 @observer
 class Home extends Component{
   @observable cookiee
@@ -15,12 +16,12 @@ class Home extends Component{
   gotoGridScreenIfLoggedIn=()=>{
     return (
       <Redirect
-      to={{pathname:'/login'}}/>
+      to={{pathname:SIGN_IN_PATH}}/>
     )
   }
     
     render(){
-        if(true){
+        if(getAccessToken()!==''){
             return this.gotoGridScreenIfLoggedIn()
           }
         

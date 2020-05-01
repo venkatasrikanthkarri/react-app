@@ -1,11 +1,12 @@
+import { Route } from "react-router-dom";
 import React from 'react'
-import { BrowserRouter as Route } from "react-router-dom";
+
 
 import productsPagePath from '../constants'
-import ProductsPageRoute from '../components/ProductsPage'
+import ProductsPage from '../components/ProductsPage'
 
-const produtsPageRoutes=<Route key={Math.random()} exact path={productsPagePath}>
-            <ProductsPageRoute />
-                </Route>
+const produtsPageRoutes=[<Route key={Math.random()} exact path={productsPagePath} component={ProductsPage}/>]
+    // <ProductsPage/>
+    // </Route>]
 
 export default produtsPageRoutes

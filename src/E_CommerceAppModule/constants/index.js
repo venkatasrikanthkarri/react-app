@@ -1,3 +1,3 @@
-const productsPagePath='/Products'
+const productsPagePath='/products'
 
 export default productsPagePath

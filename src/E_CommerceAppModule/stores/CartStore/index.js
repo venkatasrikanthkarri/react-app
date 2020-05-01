@@ -26,7 +26,6 @@ class CartStore{
         let cartList=this.cartProductList.find(product=>
                 parseInt(id)===product.details.id
                 )
-        console.log(124,cartList) 
     if(cartList){
         cartList.cartModel.incrementQuantity()
     }   
@@ -35,14 +34,10 @@ class CartStore{
        this.cartProductList= [...this.cartProductList,{cartModel,details:this.getProductDetailsById(id)}]
     }
     }
-        
-        
-        console.log(this.cartProductList,this.totalCartAmount)
 }
 
     @action.bound
     onRemoveCartItem(id){
-        alert(id)
         let filteredItems=this.cartProductList.filter(item=>item.details.id!==parseInt(id))
         this.cartProductList=filteredItems
 
