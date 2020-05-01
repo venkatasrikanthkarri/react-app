@@ -33,12 +33,12 @@ class AuthStore{
 
     @action.bound
     userSignIn(username,password){
-        if(username!=='' && password!==''){
+        
         const authPromise=this.authAPIService.signInAPI()
         return bindPromiseWithOnSuccess(authPromise)
         .to(this.setGetUserSignInAPIStatus,this.setUserSignInAPIResponse)
         .catch(this.setGetUserSignInAPIError)
-        }
+        
     }
 
     @action.bound

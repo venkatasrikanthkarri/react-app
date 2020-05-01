@@ -21,7 +21,7 @@ class LoadingWrapperWithFailure extends Component {
           <Loader type="TailSpin" color="white" height={30} width={30}/>
                 </Loaderbg>
       case API_INITIAL:
-        return <Wrapper>
+        return <Wrapper onSubmit={this.props.click}>
                 <Login type='submit' onSubmit={this.props.click}>LogIn</Login>
                 <ForgorPassword href='/E-commerse/SignIn'>Forgot Password?</ForgorPassword>  
               </Wrapper>

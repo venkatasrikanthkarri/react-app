@@ -1,3 +1,3 @@
-const productsPagePath='/products'
+const productsPagePath='/ecommerce-store/products/'
 
 export default productsPagePath

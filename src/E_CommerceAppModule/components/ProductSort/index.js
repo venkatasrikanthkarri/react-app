@@ -12,8 +12,8 @@ class ProductSort extends Component{
         return(
                 <SelectSort id={Math.random()} onChange={this.onSelectSortBy}>
                     <option hidden>Select</option>
-                    <option value="A-Z">Lowest to highest</option>
-                    <option value="Z-A">Highest to lowest</option>
+                    <option value="ASCENDING">Lowest to highest</option>
+                    <option value="DESCENDING">Highest to lowest</option>
                 </SelectSort>
         )
     }

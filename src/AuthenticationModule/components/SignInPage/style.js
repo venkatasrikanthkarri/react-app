@@ -9,5 +9,5 @@ const Title=styled('div')`${tw`text-center font-bold m-0`}`
 const UserName=styled('input')`${tw`shadow appearance-none border rounded mt-6 w-full py-2 px-3 text-gray-700 leading-tight `} ${`focus:outline-none`};${`focus:shadow-outline`}`
 const Password=styled('input')`${tw`shadow appearance-none border rounded mt-6 w-full py-2 px-3 text-gray-700 leading-tight `} ${`focus:outline-none`};${`focus:shadow-outline`}`
 const LoginWrapper=styled('div')`${tw`flex justify-between items-baseline`}`
-
-export {Container,SignInFormWrapper,Title,SignInForm,UserName,Password,LoginWrapper}
+const ErrorMessage=styled.span`${tw`text-xs text-red-600 h-3`}`
+export {Container,SignInFormWrapper,Title,SignInForm,UserName,Password,LoginWrapper,ErrorMessage}

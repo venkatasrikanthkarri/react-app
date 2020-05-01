@@ -73,12 +73,12 @@ class ProductStore {
     onChangeSortBy(sortKey){
 
         switch(sortKey){
-            case 'A-Z':
+            case 'ASCENDING':
                 {
                 this.sortByLowestHighest()
                 break
             }
-            case 'Z-A':
+            case 'DESCENDING':
                 {
                 this.sortByHighestToLowest()
                 break
