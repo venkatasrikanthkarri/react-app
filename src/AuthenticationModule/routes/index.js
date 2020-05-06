@@ -1,11 +1,7 @@
 import React from 'react'
-import { Route } from "react-router-dom";
-
 import SIGN_IN_PATH from '../constants'
-import SignInPageRoute from '../components/SignInPage'
+import SignInPageRoute from '../routes/SignInPageRoute'
+import {ProtectedRoute} from '../components/ProtectedRoute'
 
-const authRoutes =
-                <Route key={Math.random()} exact path={SIGN_IN_PATH}>
-                        <SignInPageRoute />
-                </Route>
-export default authRoutes
+const authRoutes = [<ProtectedRoute key={Math.random()} exact path={SIGN_IN_PATH} component={SignInPageRoute}/>]
+export {authRoutes}

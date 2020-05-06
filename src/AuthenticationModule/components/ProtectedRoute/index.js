@@ -1,9 +1,9 @@
 import React from 'react';
 import {Route} from 'react-router'
 import {getAccessToken} from '../../../utils/StorageUtils'
-import SignInPageRoute from '../../components/SignInPage'
+import SignInPageRoute from '../../routes/SignInPageRoute'
 import SIGN_IN_PATH from '../../constants'
-const PRotectedRoute=(props)=>{
+const ProtectedRoute=(props)=>{
     const{component:Component,...others}=props
     if(getAccessToken()!==undefined){
         return(
@@ -13,8 +13,9 @@ const PRotectedRoute=(props)=>{
     else{
         return(
             <Route key={Math.random()} to={{pathname:{SIGN_IN_PATH}}} component={SignInPageRoute}/>
+            // <SignInPageRoute/>
         )
     }
 }
 
-export {PRotectedRoute}
+export {ProtectedRoute}

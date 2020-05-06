@@ -18,7 +18,7 @@ class AuthStore{
         this.authAPIService=authAPIService
         this.init()
     }
-
+    
     @action.bound
     init(){
         this.getUserSignInAPIError=null

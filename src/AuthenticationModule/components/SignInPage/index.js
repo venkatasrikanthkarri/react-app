@@ -1,90 +1,37 @@
 import React,{Component} from 'react'
-import {observable,action} from 'mobx'
-import {observer,inject} from 'mobx-react'
-import {withRouter} from 'react-router-dom'
+import {observer} from 'mobx-react'
 import LoadingWrapper from '../../common/LoadingWrapper'
-import productsPagePath from '../../../E_CommerceAppModule/constants'
-// import {getAccessToken} from '../../../utils/StorageUtils'
 
 import {Container,SignInFormWrapper,Title,SignInForm,UserName,Password,LoginWrapper,ErrorMessage} from './style.js'
-// import authStore from '../../stores'
 
-
-@inject('authStore')
 @observer
-class SignInPageRoute extends Component{
-    @observable username
-    @observable password
-    @observable userNameErrorMessage
-    @observable passwordErrorMessage
-    constructor(props){
-        super(props);
-        this.init()
-        
-    }
-
-    @action.bound
-    init(){
-        this.username=''
-        this.password=''
-        this.errorMessage=''
-    }
-
-    @action.bound
-    onChangeUsername(event){
-        this.username=event.target.value
-        this.userNameErrorMessage=''
-    }
-
-    @action.bound
-    onChangePassword(event){
-        this.password=event.target.value
-        this.passwordErrorMessage=''        
-    }
-
-    @action.bound
-    async onClickSignIn(event){
-
-        event.preventDefault()
-        if(this.username!=='' && this.password!==''){        
-        await this.props.authStore.userSignIn(this.username,this.password)
-        this.username=''
-        this.password=''
-        }
-        this.username===''?this.userNameErrorMessage='Please enter username':this.userNameErrorMessage=''
-        this.password===''?this.passwordErrorMessage='Please enter password':this.passwordErrorMessage=''
-        this.renderSuccessUI()
-
-    }
-    @action.bound
-    renderSuccessUI(){
-        
-        const{history}=this.props
-        if(this.props.authStore.accessToken!=='')
-        {
-            history.replace(productsPagePath)
-        }
-    }
-
-    @action.bound
-    clearStore(){
-        this.init()
-    }
+class SignInPage extends Component{
+    
     
     render(){
-        const {getUserSignInAPIStatus,getUserSignInAPIError}=this.props.authStore
+        const {getUserSignInAPIStatus,
+            getUserSignInAPIError,
+            onClickSignIn,
+            username,
+            onChangeUsername,
+            userNameErrorMessage,
+            password,
+            onChangePassword,
+            passwordErrorMessage,
+            renderSuccessUI
+
+        }=this.props
         return(
             <Container>
                 <SignInFormWrapper>
-                    <SignInForm onSubmit={this.onClickSignIn}>
+                    <SignInForm onSubmit={onClickSignIn}>
                         <Title>SignIn</Title>
-                        <UserName type='text' value={this.username} onChange={this.onChangeUsername} placeholder='Username' />
-                        <ErrorMessage>{this.userNameErrorMessage}</ErrorMessage>
-                        <Password type='password' value={this.password} onChange={this.onChangePassword}  placeholder='Password' />
-                        <ErrorMessage>{this.passwordErrorMessage}</ErrorMessage>
+                        <UserName type='text' value={username} onChange={onChangeUsername} placeholder='Username' />
+                        <ErrorMessage>{userNameErrorMessage}</ErrorMessage>
+                        <Password type='password' value={password} onChange={onChangePassword}  placeholder='Password' />
+                        <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
                         <LoginWrapper>
-                            <LoadingWrapper apiStatus={getUserSignInAPIStatus} apiError={getUserSignInAPIError} click={this.onClickSignIn} renderSuccessUI={this.renderSuccessUI}/>
-                            {/* <ForgorPassword href='#'>Forgot Password?</ForgorPassword> */}
+                            <LoadingWrapper apiStatus={getUserSignInAPIStatus} apiError={getUserSignInAPIError} click={onClickSignIn} renderSuccessUI={renderSuccessUI}/>
                         </LoginWrapper>
                     </SignInForm>
                     </SignInFormWrapper>
@@ -94,4 +41,4 @@ class SignInPageRoute extends Component{
     }
 }
 
-export default withRouter(SignInPageRoute)
+export default SignInPage

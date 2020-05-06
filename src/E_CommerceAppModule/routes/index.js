@@ -1,15 +1,9 @@
-// import { Route } from "react-router-dom";
+
 import React from 'react'
-
-
 import productsPagePath from '../constants'
 import ProductsPage from '../components/ProductsPage'
-import {PRotectedRoute} from '../../AuthenticationModule/components/ProtectedRoute'
+import {ProtectedRoute} from '../../AuthenticationModule/components/ProtectedRoute'
 
-const produtsPageRoutes=[<PRotectedRoute key={Math.random()} pathname={productsPagePath} component={ProductsPage}/>]
-
-// [<Route key={Math.random()} exact path={productsPagePath} component={ProductsPage}/>]
-    // <ProductsPage/>
-    // </Route>]
+const produtsPageRoutes=[<ProtectedRoute key={Math.random()} pathname={productsPagePath} component={ProductsPage}/>]
 
 export default produtsPageRoutes

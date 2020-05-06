@@ -1,52 +1,45 @@
 import React,{Component} from 'react'
-import { Link, Redirect } from "react-router-dom"
-import logInStore from '../../stores/LogInStore'
+
+import { Link } from "react-router-dom"
+
 import {observer} from 'mobx-react'
-import {observable} from 'mobx'
-import {getAccessToken} from '../../utils/StorageUtils'
-import SIGN_IN_PATH from '../../AuthenticationModule/constants'
+
 @observer
 class Home extends Component{
-  @observable cookiee
-  constructor(props){
-    super(props);
-    this.cookiee=logInStore.cookiee
-  }
-    
-  gotoGridScreenIfLoggedIn=()=>{
-    return (
-      <Redirect
-      to={{pathname:SIGN_IN_PATH}}/>
-    )
-  }
-    
+
     render(){
-        if(getAccessToken()!==''){
-            return this.gotoGridScreenIfLoggedIn()
-          }
-        
+
           return(
-            <div>
+          <div>
+
             <nav>
+
                 <ul className="projectLists">
+
                     <li>
                       <Link to="/">Home</Link>
                     </li>
+
                     <li>
                       <Link to="/carlist">CarList</Link>
                     </li>
+
                     <li>
                       <Link to="/todoList">TodoList</Link>
                     </li>
+
                     <li>
                       <Link to="/greeting">Greeting</Link>
                     </li>
+
                     <li>
                       <Link to="/desert">Desert</Link>
                     </li>
+
                     <li>
                       <Link to="/selectCity">selectcity</Link>
                     </li>
+
                     <li>
                       <Link to="/selectState">selectstate</Link>
                     </li>
@@ -58,6 +51,7 @@ class Home extends Component{
                     <li>
                       <Link to="/Countries-Dashboard-App">countriesList</Link>
                     </li>
+
                     <li>
                       <Link to="/emoji-game">Emojis Game</Link>
                     </li>
@@ -98,6 +92,9 @@ class Home extends Component{
                       <Link to="/login">Login</Link>
                     </li>
 
+                    <li>
+                      <Link to="/Dashboard">Mqtt</Link>
+                    </li>
 
                   </ul>
             </nav>
@@ -106,6 +103,7 @@ class Home extends Component{
         
         
     }
+
 }
 
 export default Home
