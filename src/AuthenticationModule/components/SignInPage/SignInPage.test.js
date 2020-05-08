@@ -30,7 +30,7 @@ describe('SigninForm', () => {
     it('should render given error message',() => {
 
         const{ getByText }=render(
-            <SignInPage userNameErrorMessage="enter valid username" />
+            <SignInPage errorMessage="enter valid username" />
     )
     getByText(/enter valid username/i);
 

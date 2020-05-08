@@ -11,8 +11,7 @@ import SignInPage from '../../components/SignInPage'
 class SignInPageRoute extends Component{
     @observable username
     @observable password
-    @observable userNameErrorMessage
-    @observable passwordErrorMessage
+    @observable errorMessage
     
     constructor(props){
         super(props);
@@ -29,13 +28,13 @@ class SignInPageRoute extends Component{
     @action.bound
     onChangeUsername(event){
         this.username=event.target.value
-        this.userNameErrorMessage=''
+        this.errorMessage=''
     }
 
     @action.bound
     onChangePassword(event){
         this.password=event.target.value
-        this.passwordErrorMessage=''        
+        this.errorMessage=''   
     }
 
     @action.bound
@@ -47,8 +46,9 @@ class SignInPageRoute extends Component{
         this.username=''
         this.password=''
         }
-        this.username ===''?this.userNameErrorMessage='Please enter username':this.userNameErrorMessage=''
-        this.password ===''?this.passwordErrorMessage='Please enter password':this.passwordErrorMessage=''
+        this.username ===''?this.errorMessage='Please enter username':
+        this.password ===''?this.errorMessage='Please enter password':
+        this.passwordErrorMessage=''
         this.renderSuccessUI()
 
     }
@@ -77,10 +77,9 @@ class SignInPageRoute extends Component{
                 onClickSignIn={this.onClickSignIn}
                 username={this.username}
                 onChangeUsername={this.onChangeUsername}
-                userNameErrorMessage={this.userNameErrorMessage}
                 password={this.password}
                 onChangePassword={this.onChangePassword}
-                passwordErrorMessage={this.passwordErrorMessage}
+                errorMessage={this.errorMessage}
                 renderSuccessUI={this.renderSuccessUI}
                 />
         )

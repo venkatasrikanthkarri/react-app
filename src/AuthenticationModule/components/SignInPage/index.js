@@ -14,10 +14,9 @@ class SignInPage extends Component{
             onClickSignIn,
             username,
             onChangeUsername,
-            userNameErrorMessage,
             password,
             onChangePassword,
-            passwordErrorMessage,
+            errorMessage,
             renderSuccessUI
 
         }=this.props
@@ -27,13 +26,13 @@ class SignInPage extends Component{
                     <SignInForm onSubmit={onClickSignIn}>
                         <Title>SignIn</Title>
                         <UserName type='text' value={username} onChange={onChangeUsername} placeholder='Username' />
-                        <ErrorMessage>{userNameErrorMessage}</ErrorMessage>
+                        {/* <ErrorMessage>{userNameErrorMessage}</ErrorMessage> */}
                         <Password type='password' value={password} onChange={onChangePassword}  placeholder='Password' />
-                        <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
                         <LoginWrapper>
                             <LoadingWrapper apiStatus={getUserSignInAPIStatus} apiError={getUserSignInAPIError} click={onClickSignIn} renderSuccessUI={renderSuccessUI}/>
                         </LoginWrapper>
                     </SignInForm>
+                    <ErrorMessage>{errorMessage}</ErrorMessage>
                     </SignInFormWrapper>
             </Container>
 
