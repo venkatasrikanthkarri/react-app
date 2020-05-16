@@ -37,6 +37,7 @@
 //     </div>
 //   );
 // }
+<<<<<<< HEAD
 
 // export default App;
 
@@ -113,3 +114,31 @@ export default HomePage
 
 
 
+=======
+
+// export default App;
+import React, { Component } from 'react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
+export class MapContainer extends Component {
+  render() {
+    return (
+      <Map google={this.props.google} zoom={14}>
+
+         <Marker onClick={this.onMarkerClick}
+                name={'Current location'} />
+
+        <InfoWindow onClose={this.onInfoWindowClose}>
+            <div>
+              <h1>Google Maps</h1>
+            </div>
+        </InfoWindow>
+      </Map>
+    );
+  }
+}
+
+export default GoogleApiWrapper({
+  apiKey: ("AIzaSyDvTCFe0l93fqAQsn5vj5iA8xhdB5wdB3s")
+})(MapContainer)
+>>>>>>> 6ebb63b0531481aca4db4fc151f763ca7e724a87

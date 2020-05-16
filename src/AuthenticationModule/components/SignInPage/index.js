@@ -4,8 +4,21 @@ import LoadingWrapper from '../../common/LoadingWrapper'
 
 import {Container,SignInFormWrapper,Title,SignInForm,UserName,Password,LoginWrapper,ErrorMessage} from './style.js'
 
+
+const DisplayMessage=()=>{
+    return <div>hi</div>
+}
+
 @observer
 class SignInPage extends Component{
+    userNameRef=React.createRef()
+    // passwordRef=React.createRef()
+
+    componentDidMount(){
+        this.userNameRef.current.focus();
+        // this.passwordRef.current.focous()
+    }
+
     
     
     render(){
@@ -25,7 +38,7 @@ class SignInPage extends Component{
                 <SignInFormWrapper>
                     <SignInForm onSubmit={onClickSignIn}>
                         <Title>SignIn</Title>
-                        <UserName type='text' value={username} onChange={onChangeUsername} placeholder='Username' />
+                        <UserName ref={this.userNameRef} type='text' value={username} onChange={onChangeUsername} placeholder='Username' />
                         {/* <ErrorMessage>{userNameErrorMessage}</ErrorMessage> */}
                         <Password type='password' value={password} onChange={onChangePassword}  placeholder='Password' />
                         <LoginWrapper>
@@ -34,6 +47,7 @@ class SignInPage extends Component{
                     </SignInForm>
                     <ErrorMessage>{errorMessage}</ErrorMessage>
                     </SignInFormWrapper>
+                    <DisplayMessage>Hello</DisplayMessage>
             </Container>
 
     )
