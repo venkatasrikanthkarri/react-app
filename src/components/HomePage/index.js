@@ -37,7 +37,6 @@
 //     </div>
 //   );
 // }
-<<<<<<< HEAD
 
 // export default App;
 
@@ -50,37 +49,35 @@
 
 
 
-import React, { Component } from "react";
-import { render } from "react-dom";
+// import React, { Component } from "react";
+// import { render } from "react-dom";
 
-class HomePage extends Component {
-  state = {
-    count: 2,
-    count1:1,
-  };
-  updateCount = () => {
-    this.setState({
-      count: this.state.count,
-    });
-    this.setState({count1:2})
-  };
+// class HomePage extends Component {
+//   state = {
+//     count: 2,
+//     count1:1,
+//   };
+//   updateCount = () => {
+//     this.setState({
+//       count: this.state.count,
+//     });
+//     this.setState({count1:2})
+//   };
 
-  render() {
-    console.log("render Counter");
-    return (
-      <div>
-        <p>Count: {this.state.count}</p>
-                <p>Count: {this.state.count1}</p>
-        <button onClick={this.updateCount}>Update count</button>
-      </div>
-    );
-  }
-}
-
-
-export default HomePage
+//   render() {
+//     console.log("render Counter");
+//     return (
+//       <div>
+//         <p>Count: {this.state.count}</p>
+//                 <p>Count: {this.state.count1}</p>
+//         <button onClick={this.updateCount}>Update count</button>
+//       </div>
+//     );
+//   }
+// }
 
 
+// export default HomePage
 
 
 
@@ -114,7 +111,8 @@ export default HomePage
 
 
 
-=======
+
+
 
 // export default App;
 import React, { Component } from 'react';
@@ -141,4 +139,3 @@ export class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: ("AIzaSyDvTCFe0l93fqAQsn5vj5iA8xhdB5wdB3s")
 })(MapContainer)
->>>>>>> 6ebb63b0531481aca4db4fc151f763ca7e724a87
