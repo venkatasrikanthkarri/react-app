@@ -14,7 +14,7 @@ import CountryDetails from './components/CountriesList/CountryDetails.js'
 import EmojiGame from './components/EmojiGame/EmojiGameComponent/EmojiGame.js'
 import CounterPage from './components/CounterPage/index.js'
 import Page1 from './components/Page1/index.js'
-import HomePage from './components/HomePage/index.js'
+import MapContainer from './components/HomePage/index.js'
 import GridMemoryGame from './components/GridGame/GridMemoryGame'
 import TodoApp from './components/TodoListUsingMobxStoreandNetworkCalls/TodoApp'
 import UsersPage from './components/UsersPage/index.js'
@@ -25,14 +25,22 @@ import LogInPage from './components/LogInPage'
 import {authRoutes} from './AuthenticationModule/routes'
 import produtsPageRoutes from './E_CommerceAppModule/routes'
 import {MqttBrocker} from './MqttDashboard/mqtt'
+import {DemoCarousel} from './components/ResponsiveCorousalTesting'
+
+
+
 import selectTheme from './stores/selectTheme'
 import StyledTheme from './appStyle'
 import GoBack from './GoBack.js'
+
 import './App.css';
 import './custom.css';
+import { observable } from "mobx"
 
 @observer
 class App extends React.Component {
+  @observable eCommerceAppTheme="dark"
+  onChnageEcommerceApp
     constructor(props) {
         super(props);
         this.state = {
@@ -87,7 +95,7 @@ class App extends React.Component {
                 </Route>
 
                 <Route exact path="/home">
-                  <HomePage />
+                  <MapContainer />
                 </Route>
 
                 <Route exact path="/carlist">
@@ -191,8 +199,14 @@ class App extends React.Component {
                   <MqttBrocker/>
                 </Route>
 
+                <Route exact path="/Carousal" >
+                  <DemoCarousel/>
+                </Route>
+                
                 {authRoutes}
                 {produtsPageRoutes}
+
+                
 
               </Switch>
             </Router>

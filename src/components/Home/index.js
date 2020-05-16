@@ -96,6 +96,10 @@ class Home extends Component{
                       <Link to="/Dashboard">Mqtt</Link>
                     </li>
 
+                    <li>
+                      <Link to="/Carousal">Demo Carousal</Link>
+                    </li>
+
                   </ul>
             </nav>
         </div>
