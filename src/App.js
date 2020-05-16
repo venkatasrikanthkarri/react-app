@@ -75,7 +75,7 @@ class App extends React.Component {
               <Switch>
 
                 <Route exact path="/">
-                    <Home/>
+                  <Home/>
                 </Route>
 
                 <Route exact path="/counter-page">
@@ -99,16 +99,16 @@ class App extends React.Component {
 
                 <Route exact path="/todoList">
                   <div>
-                      <GoBack/>
-                      <UserMainComponent/>
+                    <GoBack/>
+                    <UserMainComponent/>
                   </div>
                 </Route>
 
                 <Route exact path="/greeting">
-                <div>
-                <button className="backBtn" type="button" onClick={this.goToPrevious}></button>
-                <GreetingComponent/>
-                </div>
+                  <div>
+                    <button className="backBtn" type="button" onClick={this.goToPrevious}></button>
+                    <GreetingComponent/>
+                  </div>
                 </Route>
 
                 <Route exact path="/desert">
@@ -168,7 +168,7 @@ class App extends React.Component {
                 </Route>
 
                 <Route exact path="/Todo-App-mobx">
-                  <TodoApp/>        
+                  <TodoApp/>
                 </Route>
 
                 <Route exact path="/usersName" >
