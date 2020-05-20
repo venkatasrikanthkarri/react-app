@@ -77,7 +77,11 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
+<<<<<<< HEAD
+      "src/AuthenticationModule/*.{ts,tsx,js,jsx}"
+=======
       "*/src/AuthenticationModule/*.{ts,tsx,js,jsx}"
+>>>>>>> 6ebb63b0531481aca4db4fc151f763ca7e724a87
     ]
   }
 }

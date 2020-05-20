@@ -1,3 +1,4 @@
+
 // import React from "react";
 // import { Link} from "react-router-dom";
 // import logo from "../../logo.svg";
@@ -38,17 +39,93 @@
 // }
 
 // export default App;
+
+
+
+
+
+// render(<Counter />, document.getElementById("root"));
+
+
+
+
+// import React, { Component } from "react";
+// import { render } from "react-dom";
+
+// class HomePage extends Component {
+//   state = {
+//     count: 2,
+//     count1:1,
+//   };
+//   updateCount = () => {
+//     this.setState({
+//       count: this.state.count,
+//     });
+//     this.setState({count1:2})
+//   };
+
+//   render() {
+//     console.log("render Counter");
+//     return (
+//       <div>
+//         <p>Count: {this.state.count}</p>
+//                 <p>Count: {this.state.count1}</p>
+//         <button onClick={this.updateCount}>Update count</button>
+//       </div>
+//     );
+//   }
+// }
+
+
+// export default HomePage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export default App;
 import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
- 
+
 export class MapContainer extends Component {
   render() {
     return (
       <Map google={this.props.google} zoom={14}>
- 
+
          <Marker onClick={this.onMarkerClick}
                 name={'Current location'} />
- 
+
         <InfoWindow onClose={this.onInfoWindowClose}>
             <div>
               <h1>Google Maps</h1>
@@ -58,7 +135,7 @@ export class MapContainer extends Component {
     );
   }
 }
- 
+
 export default GoogleApiWrapper({
   apiKey: ("AIzaSyDvTCFe0l93fqAQsn5vj5iA8xhdB5wdB3s")
 })(MapContainer)
