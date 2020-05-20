@@ -23,11 +23,9 @@ class CountriesDashboardApp extends React.Component {
         this.searchedRegion = 'All';
     }
 
-
     componentDidMount = () => {
         this.getCountries();
     }
-
 
     getCountries = () => {
         fetch('https://restcountries.eu/rest/v2/all')
