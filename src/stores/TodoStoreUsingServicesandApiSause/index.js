@@ -18,6 +18,7 @@ class TodoApp {
 
     init=()=>{
         this.todos=[]
+        this.todoBuffer=[]
         this.selectedFilter='ALL'
         this.getTodoListAPIStatus='API_INITIAL'
         this.getTodoListAPIError=null
@@ -47,6 +48,7 @@ class TodoApp {
 
     setTodoListResponse=(todos)=>{
         this.todos=todos
+        this.todoBuffer=todos
     }
 
     @action.bound
@@ -54,6 +56,7 @@ class TodoApp {
         const Todo=new TodoModel()
         Todo.title=event
         this.todos=[...this.todos,Todo]
+        this.todoBuffer=this.todos
     }
 
 
@@ -64,11 +67,31 @@ class TodoApp {
     onRemoveTodo=(Todo)=>{
         this.todos=this.todos.filter(each=>
             parseFloat(each.id)!==parseFloat(Todo.id))
+        this.todoBuffer=this.todos
     }
 
     onUpdateTodoTitle=(Todo,value)=>{
         Todo.title=value
     }
+
+    displayTodos=()=>{
+        this.todos=this.todoBuffer
+
+    }
+
+    displayActiveTodos=()=>{
+        this.todos=this.todoBuffer.filter(todo=>todo.completed===false)
+    }
+
+    displayCompletedTodos=()=>{
+        this.todos=this.todoBuffer.filter(todo=>todo.completed===true)
+    }
+
+    clearCompletedTodos=()=>{
+        this.todos=this.todoBuffer.filter(todo=>todo.completed===false)
+        this.todoBuffer=this.todos        
+    }
+
 
     @computed
     get activeTodosCount(){
@@ -77,21 +100,8 @@ class TodoApp {
         if(!each.completed)
         {this.activeTodoCount++}}
     )
-    console.log(123123,this.activeTodoCount)
     return this.activeTodoCount
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -1,8 +1,7 @@
 import React,{Component} from 'react'
 import {observer} from 'mobx-react'
 
-import { ToastContainer, toast } from 'react-toastify';
-
+import { ToastContainer, toast } from 'react-toastify'
 
 import {
     ProductContainer,
@@ -84,6 +83,7 @@ class Product extends Component{
             </ProductPrice>
             <AddToCart onClick={this.onClickAddToCart}>Add to cart</AddToCart>
             <ToastContainer/>
+
         </ProductContainer>
 )
 

@@ -7,6 +7,8 @@ import Header from '../Header'
 import ProductList from '../ProductList'
 import CartItem from '../CartItem/index'
 
+import Pagination from '../Pagination'
+
 import {SignOut,ProductPageContainer,HeaderProducts,ProductsPageWrapper} from './style.js'
 
 
@@ -50,6 +52,7 @@ class ProductsPage extends Component{
                     />
                 </HeaderProducts>
             </ProductPageContainer>
+            <Pagination/>
         </ProductsPageWrapper>
 )
     }

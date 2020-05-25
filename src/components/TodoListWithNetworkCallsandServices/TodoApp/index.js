@@ -31,8 +31,6 @@ class TodoAppWithServicesandAPISause extends Component{
         if(users===0){
             return <NoDataView/>
         }
-
-        console.log(3,this.getStore().todos)
         return (
             <div>
                 <form onSubmit={this.addTodo}>

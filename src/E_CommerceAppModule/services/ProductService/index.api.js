@@ -1,18 +1,25 @@
 import {create} from 'apisauce'
+
 import {networkCallWithApisauce} from '../../../utils/APIUtils'
 import {apiMethods} from '../../../constants/APIConstants'
+
+import paginationConst from '../../stores/Pagination'
+
+
 
 
 class ProductService {
     api
     constructor(){
-        this.api=create({baseURL:'https://5ea1a14db9f5ca00166c1f27.mockapi.io/api/'})
+        this.api=create({baseURL:'https://9ba0cd3ggi.execute-api.ap-south-1.amazonaws.com/ecommerce/'})
     }
 
-    getProductsAPI(){
+    getProductsAPI(offset){
+        alert(paginationConst.limit)
         return networkCallWithApisauce(
             this.api,
-            'v1/products/',
+            // 'v1/products/',
+            `products?limit=2&offset=${offset}`,
             {},
             apiMethods.get)
     }

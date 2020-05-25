@@ -10,11 +10,11 @@ class TodoFilter extends Component{
     render(){
         return(
             <div style={{padding:`100px`}}>
-                <div>Active Count:{this.props.todoStore.activeTodoCount}</div>
-                <button>All</button>
-                <button>Active</button>
-                <button>Completed</button>
-                <button>Clear completed</button>
+                <div>Active Count:{this.props.todoStore.activeTodosCount}</div>
+                <button onClick={this.props.todoStore.displayTodos}>All</button>
+                <button onClick={this.props.todoStore.displayActiveTodos}>Active</button>
+                <button onClick={this.props.todoStore.displayCompletedTodos}>Completed</button>
+                <button onClick={this.props.todoStore.clearCompletedTodos}>Clear completed</button>
             </div>
         )
     }

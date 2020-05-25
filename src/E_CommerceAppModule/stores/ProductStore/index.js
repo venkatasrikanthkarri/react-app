@@ -9,6 +9,8 @@ class ProductStore {
     @observable productsAPIService
     @observable sizeFilter
     @observable sortBy
+    @observable limit
+    @observable offSet
     constructor(productsAPIService){
         this.productsAPIService=productsAPIService
         this.init()
@@ -22,6 +24,9 @@ class ProductStore {
         this.getProductListAPIError=null
         this.sizeFilter=[]
         this.sortBy='SELECT'
+        this.limit=1
+        this.offSet=0
+        this.boundary=1
     }
     @action.bound
     closeStore(){
@@ -30,17 +35,15 @@ class ProductStore {
 
     @action.bound
     getProductList(){
-        const productPromise=this.productsAPIService.getProductsAPI()
+        const productPromise=this.productsAPIService.getProductsAPI(this.offSet)
         return bindPromiseWithOnSuccess(productPromise)
         .to(this.setGetProductListAPIStatus,this.setProductListResponse)
         .catch(this.setGetProductListAPIError)
-        }
-
-    
+        }    
 
     @action.bound
     setProductListResponse(products){
-        this.productList=products
+        this.productList=products.products
         this.products=products       
     }
 
@@ -61,7 +64,7 @@ class ProductStore {
         this.productList=sortedArray
         this.products=sortedArray
     }
-    
+
     @action.bound
     sortByLowestHighest(){
         let sortedArray=this.products.slice().sort((a, b) => (a.price>b.price)?1:-1);
@@ -85,7 +88,6 @@ class ProductStore {
             }
             default:
                 break
-
         }
     }
 
@@ -134,6 +136,20 @@ class ProductStore {
     get totalNoOfProductsDisplayed(){
         return this.productList.length
     }
+
+    increaseBoundary=()=>{
+            this.boundary++
+            this.offSet++
+            this.getProductList()
+    }
+    
+    decreaseBoundary=()=>{
+        this.boundary--
+        this.offSet--
+        this.getProductList()
+        
+    }
+
 }
 
 export default ProductStore
