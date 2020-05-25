@@ -115,27 +115,80 @@
 
 
 // export default App;
-import React, { Component } from 'react';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-export class MapContainer extends Component {
+
+import React from "react";
+import { render } from "react-dom";
+
+class ListItem extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    if (this.props.value === nextProps.value) {
+      return false;
+    }
+    return true;
+  }
+
+  render() {
+    console.log("new item");
+    return <li>{this.props.value}</li>;
+  }
+}
+
+export default class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { numbers: [0, 10, 20, 30, 40, 50] };
+  }
+  renderListItems = () => {
+    const { numbers } = this.state;
+    return numbers.map((number, index) => (
+      <ListItem key={index} value={number} />
+    ));
+  };
+
+  addNumberToList = () => {
+    const { numbers } = this.state;
+
+    this.setState({
+      numbers: [...numbers, numbers.length * 10],
+    });
+  };
+
   render() {
     return (
-      <Map google={this.props.google} zoom={14}>
-
-         <Marker onClick={this.onMarkerClick}
-                name={'Current location'} />
-
-        <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>Google Maps</h1>
-            </div>
-        </InfoWindow>
-      </Map>
+      <div>
+        <ul>{this.renderListItems()}</ul>
+        <button onClick={this.addNumberToList}>Add number</button>
+      </div>
     );
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: ("AIzaSyDvTCFe0l93fqAQsn5vj5iA8xhdB5wdB3s")
-})(MapContainer)
+// render(<App />, document.getElementById("root"));
+
+
+
+// import React, { Component } from 'react';
+// import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+
+// export class MapContainer extends Component {
+//   render() {
+//     return (
+//       <Map google={this.props.google} zoom={14}>
+
+//         <Marker onClick={this.onMarkerClick}
+//                 name={'Current location'} />
+
+//         <InfoWindow onClose={this.onInfoWindowClose}>
+//             <div>
+//               <h1>Google Maps</h1>
+//             </div>
+//         </InfoWindow>
+//       </Map>
+//     );
+//   }
+// }
+
+// export default GoogleApiWrapper({
+//   apiKey: ("AIzaSyDvTCFe0l93fqAQsn5vj5iA8xhdB5wdB3s")
+// })(MapContainer)
